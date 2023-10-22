@@ -2,15 +2,18 @@
 
 <div>
     <x-livewire-tables::wrapper :component="$this" :tableName="$tableName">
-        @if ($this->hasConfigurableAreaFor('before-tools'))
-            @include($this->getConfigurableAreaFor('before-tools'), $this->getParametersForConfigurableArea('before-tools'))
-        @endif
+        <div class="card-header">
+            @if ($this->hasConfigurableAreaFor('before-tools'))
+                @include($this->getConfigurableAreaFor('before-tools'), $this->getParametersForConfigurableArea('before-tools'))
+            @endif
 
-        <x-livewire-tables::tools>
-            <x-livewire-tables::tools.sorting-pills />
-            <x-livewire-tables::tools.filter-pills />
-            <x-livewire-tables::tools.toolbar />
-        </x-livewire-tables::tools>
+            <x-livewire-tables::tools>
+                <div><h5>{{ $title }}</h5></div>
+                <x-livewire-tables::tools.sorting-pills />
+                <x-livewire-tables::tools.filter-pills />
+                <x-livewire-tables::tools.toolbar />
+            </x-livewire-tables::tools>
+        </div>
 
         <x-livewire-tables::table>
             <x-slot name="thead">
@@ -70,7 +73,9 @@
             @endif
         </x-livewire-tables::table>
 
-        <x-livewire-tables::pagination :rows="$rows" />
+        <div class="card-footer">
+            <x-livewire-tables::pagination :rows="$rows" />
+        </div>
 
         @includeIf($customView)
     </x-livewire-tables::wrapper>

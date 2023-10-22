@@ -50,7 +50,7 @@
         </table>
     </div>
 @elseif ($component->isBootstrap())
-    <div wire:key="{{ $tableName }}-twrap"
+    <div wire:key="{{ $tableName }}-twrap" class="card-body"
         {{ $attributes->merge($customAttributes['wrapper'])
             ->class(['table-responsive' => $customAttributes['wrapper']['default'] ?? true])
             ->except('default') }}
