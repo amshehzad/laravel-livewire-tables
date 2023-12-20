@@ -62,6 +62,7 @@
             ->class(['table-responsive' => $customAttributes['wrapper']['default'] ?? true])
             ->except(['default','default-styling','default-colors']) }}
     >
+        <div class="overlay d-none" wire:loading.class.remove="d-none" x-init="$el.parentElement.style.position = 'relative'"></div>
         <table
             wire:key="{{ $tableName }}-table"
             {{ $attributes->merge($customAttributes['table'])

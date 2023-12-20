@@ -8,6 +8,8 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\Traits\{HasOptions, HasWireabl
 
 class SelectFilter extends Filter
 {
+    public array $options = [];
+
     use HasOptions,
         IsStringFilter;
     use HasWireables;

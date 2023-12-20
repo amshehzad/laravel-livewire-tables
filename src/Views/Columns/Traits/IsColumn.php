@@ -2,6 +2,7 @@
 
 namespace Rappasoft\LaravelLivewireTables\Views\Columns\Traits;
 
+use Rappasoft\LaravelLivewireTables\Traits\Configuration\CustomColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Configuration\ColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Columns\Traits\Helpers\{ColumnHelpers};
@@ -30,6 +31,7 @@ trait IsColumn
         HasSecondaryHeader,
         HasTheme,
         HasVisibility;
+    use CustomColumnConfiguration;
 
     // What displays in the columns header
     protected string $title;
