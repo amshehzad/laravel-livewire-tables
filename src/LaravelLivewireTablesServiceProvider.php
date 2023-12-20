@@ -24,6 +24,10 @@ class LaravelLivewireTablesServiceProvider extends ServiceProvider
             __DIR__.'/../config/livewire-tables.php', 'livewire-tables'
         );
 
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/livewire-tables-defaults.php', 'livewire-tables-defaults'
+        );
+
         // Load Default Translations
         if (config('livewire-tables.use_json_translations', false)) {
             // Load Default Translations

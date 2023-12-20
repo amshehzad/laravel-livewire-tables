@@ -15,7 +15,7 @@ class Column
 
     public function __construct(string $title, ?string $from = null)
     {
-        $this->title = trim($title);
+        $this->title = trim(__($title));
 
         if ($from) {
             $this->from = trim($from);

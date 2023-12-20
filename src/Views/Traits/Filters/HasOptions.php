@@ -8,9 +8,9 @@ trait HasOptions
 
     protected string $firstOption = '';
 
-    public function setFirstOption(string $firstOption): self
+    public function setFirstOption(string $firstOption = 'All'): self
     {
-        $this->firstOption = $firstOption;
+        $this->firstOption = __($firstOption);
 
         return $this;
     }
@@ -29,6 +29,8 @@ trait HasOptions
 
     public function getOptions(): array
     {
+        $this->prependFirstOption();
+
         return $this->options ?? $this->options = (property_exists($this, 'optionsPath') ? config($this->optionsPath, []) : []);
     }
 
@@ -40,5 +42,12 @@ trait HasOptions
             ->filter(fn ($value) => strlen($value))
             ->values()
             ->toArray();
+    }
+
+    private function prependFirstOption(): void
+    {
+        if (array_key_first($this->options) !== '') {
+            $this->options = ['' => $this->firstOption] + $this->options;
+        }
     }
 }

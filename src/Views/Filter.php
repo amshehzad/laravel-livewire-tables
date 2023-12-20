@@ -13,7 +13,7 @@ abstract class Filter
 
     public function __construct(string $name, ?string $key = null)
     {
-        $this->name = $name;
+        $this->name = __($name);
 
         if ($key) {
             $this->key = $key;

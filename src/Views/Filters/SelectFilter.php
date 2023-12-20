@@ -9,6 +9,8 @@ use Rappasoft\LaravelLivewireTables\Views\Traits\Filters\{HasOptions, IsStringFi
 
 class SelectFilter extends Filter
 {
+    public array $options = [];
+
     use HasOptions,
         IsStringFilter;
     use HasWireables;

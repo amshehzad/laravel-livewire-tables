@@ -56,6 +56,16 @@ return [
     ],
 
     /**
+     * Configuration options for DateFilter
+     */
+    'monthFilter' => [
+        'defaultConfig' => [
+            'format' => 'Y-m-d',
+            'pillFormat' => 'M Y', // Used to display in the Filter Pills
+        ],
+    ],
+
+    /**
      * Configuration options for DateTimeFilter
      */
     'dateTimeFilter' => [

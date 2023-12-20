@@ -21,6 +21,7 @@ trait IsFilter
         HasView,
         HandlesFilterInputAttributes,
         HandlesFilterLabelAttributes;
+    use WithFilterCustomisations;
 
     protected string $name;
 

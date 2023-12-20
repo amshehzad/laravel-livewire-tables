@@ -3,6 +3,7 @@
 namespace Rappasoft\LaravelLivewireTables\Views\Traits;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Traits\Configuration\CustomColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Traits\Core\HasLocalisations;
 use Rappasoft\LaravelLivewireTables\Views\Traits\Columns\{HasColumnView, HasVisibility, IsCollapsible, IsSearchable, IsSelectable, IsSortable};
 use Rappasoft\LaravelLivewireTables\Views\Traits\Configuration\ColumnConfiguration;
@@ -26,6 +27,7 @@ trait IsColumn
         HasSecondaryHeader,
         HasTheme,
         HasVisibility;
+    use CustomColumnConfiguration;
 
     protected ?DataTableComponent $component = null;
 

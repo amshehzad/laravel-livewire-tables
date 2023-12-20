@@ -4,6 +4,7 @@ namespace Rappasoft\LaravelLivewireTables\Views\Columns;
 
 use Illuminate\Database\Eloquent\Model;
 use Rappasoft\LaravelLivewireTables\Exceptions\DataTableConfigurationException;
+use Rappasoft\LaravelLivewireTables\Traits\HasWireElement;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Traits\Configuration\LinkColumnConfiguration;
 use Rappasoft\LaravelLivewireTables\Views\Traits\Core\{HasLocationCallback, HasTitleCallback};
@@ -15,6 +16,7 @@ class LinkColumn extends Column
         LinkColumnHelpers,
         HasLocationCallback,
         HasTitleCallback;
+    use HasWireElement;
 
     protected string $view = 'livewire-tables::includes.columns.link';
 
@@ -36,6 +38,8 @@ class LinkColumn extends Column
         if (! $this->hasLocationCallback()) {
             throw new DataTableConfigurationException('You must specify a location callback for an link column.');
         }
+
+        $this->setWireElement($row);
 
         return $this->getColumnViewWithDefaults()
             ->withColumn($this)
